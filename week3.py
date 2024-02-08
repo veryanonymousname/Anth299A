@@ -14,6 +14,7 @@ bool(1)
 bool(23)
 bool([])
 bool([1, 2, 3])
+bool([False])
 
 # there are a few ways to evaluate the boolean value of statements as well, these will be useful later for controlling
 # loops and functions
@@ -32,7 +33,7 @@ bool([1, 2, 3])
 # in lower level programming languages. Python will automatically typecast them appropriately, but you can manually change
 # the type if you want.
 type(5)
-type(5)
+type(5.0)
 type(2)
 type(5/2)
 int(5/2)
@@ -48,7 +49,7 @@ float(5)
 1 - 9    # subtraction
 2 * 6    # multiplication
 4 ** 2   # exponents
-4 ** .5  # also exponenets
+4 ** .5  # also exponents
 4 / 3    # division
 4 % 3    # modulus division
 4 // 3   # floor division
@@ -77,6 +78,10 @@ print(stringIndex[1:3])
 print(stringIndex[:2])
 print(stringIndex[2:])
 
+# format
+print("hello, {}".format("world"))
+
+
 # strip, replace, split, join
 messyString = "                  this string has a lot of white space             \n     and multiple lines      \n      now what?"
 print(messyString.strip())
@@ -91,20 +96,25 @@ print(messyString.replace('string', 'text-based data structure'))
 
 # split and join are particularly useful for data management
 print(messyString)
-print(' '.join(messyString.strip().split()))
+print(' '.join(messyString.strip().split()))¯
 
 messyData = ["A bunch of numbers:", '1', '1', '2', '3', '5', '8', '13', '21', '34']
 print(messyData)
 print(' '.join(messyData))
 print('\n'.join(messyData))
 
-ex = ' '.join((messyData))
+
+
+ex = "Here's a string with some numbers that you're interest in: 1, 2, 3, 4, 5"
 print(ex)
 
 ex1 = ex.split(': ')
 print(ex1)
 
 ex1 = ex1[1]
+print(ex1)
+
+ex1 = ex1.split()
 print(ex1)
 
 
@@ -207,5 +217,96 @@ myDict = {}
 for i in range(1,11):
     myDict[i] = i**2
 print(myDict)
+
+
+## Functions
+# Functions let you easily repeat a series of code for different inputs. In python, they are defined using the `def` keyword.
+# They can accept parameters and return outputs, making code reusable and modular.
+
+# Defining a function
+def newFunction():
+    """
+    This is a docstring, it can be called with help(function). It starts and ends with three quotation marks.
+    Notice the naming convention for python functions. It's not mandatory, but this is called camelCase. The first letter
+    is lower case while each subsequent word in the name is capitalized. This just makes it more readable, and is my
+    personal preferred method. The officially recommended style (according to Python Enhancement Protocol 8, PEP8) is
+    snake_case, where words are lower case but separated by underscores.
+    """
+    pass
+
+
+def multiply(x, y):
+    product = x * y
+    return product
+
+
+# Calling a function
+multiply(2, 3)
+
+print(f"The product of 2 and 3 is {multiply(2, 3)}")
+
+if multiply(5, 10) == 5 * 10:
+    print(True)
+
+for x in range(10):
+    for y in range(10):
+        print(multiply(x, y))
+
+# Functions can have default parameters
+def greet(name="World"):
+    """Greet a person with a given name, default is 'World'."""
+    print(f"Hello, {name}!")
+
+
+greet()  # Outputs: Hello, World!
+greet("Pythonista")  # Outputs: Hello, Pythonista!
+
+
+# Functions can return multiple values as a tuple
+def arithmetic_operations(x, y):
+    """Return basic arithmetic operations between two numbers."""
+    sum = x + y
+    difference = x - y
+    product = x * y
+    division = x / y if y != 0 else None
+    return sum, difference, product, division
+
+
+# Unpacking returned tuple
+sum, difference, product, division = arithmetic_operations(10, 5)
+print(f"Sum: {sum}, Difference: {difference}, Product: {product}, Division: {division}")
+
+
+## Classes
+# Classes are the blueprint for creating objects in Python, they contain variables and functions (methods) in a single entity.
+# Python is an object-oriented programming language, and classes play a significant role in this paradigm.
+
+class Calculator:
+    """A simple calculator class."""
+
+    def __init__(self, value=0):
+        """Initialize the calculator with a default value."""
+        self.value = value
+
+    def add(self, x):
+        """Add a number to the calculator's value."""
+        self.value += x
+
+    def multiply(self, x):
+        """Multiply the calculator's value by a number."""
+        self.value *= x
+
+    def get_value(self):
+        """Return the current value."""
+        return self.value
+
+
+# Creating an instance of Calculator
+calc = Calculator()
+calc.add(5)
+calc.multiply(2)
+print(f"The current value of the calculator is {calc.get_value()}")
+
+
 
 
