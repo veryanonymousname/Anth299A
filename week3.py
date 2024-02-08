@@ -82,7 +82,7 @@ print(stringIndex[2:])
 print("hello, {}".format("world"))
 
 
-# strip, replace, split, join
+# strip, replace, split, join, count
 messyString = "                  this string has a lot of white space             \n     and multiple lines      \n      now what?"
 print(messyString.strip())
 print(messyString.strip().split())
@@ -96,7 +96,7 @@ print(messyString.replace('string', 'text-based data structure'))
 
 # split and join are particularly useful for data management
 print(messyString)
-print(' '.join(messyString.strip().split()))¯
+print(' '.join(messyString.strip().split()))
 
 messyData = ["A bunch of numbers:", '1', '1', '2', '3', '5', '8', '13', '21', '34']
 print(messyData)
@@ -116,6 +116,14 @@ print(ex1)
 
 ex1 = ex1.split()
 print(ex1)
+
+# count
+string = "Some random string with words and letters and even a few numbers like 2121280919820398"
+string.count(' ')
+string.count('t')
+string.count('2')
+string.count('and')
+
 
 
 ## Tuples
@@ -306,6 +314,8 @@ calc = Calculator()
 calc.add(5)
 calc.multiply(2)
 print(f"The current value of the calculator is {calc.get_value()}")
+
+
 
 
 
