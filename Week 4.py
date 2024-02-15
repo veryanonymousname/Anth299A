@@ -38,11 +38,63 @@ for i in range(1,11):
     myDict[i] = i**2
 print(myDict)
 
-## loops
+## Loops
+# loops let you iteratively perform a function, either continuously while a condition is met, or for each item in a sequence
 
 ## for
+# the for loop iterates through a sequence of items and performs some action for each
+myList = ["apple", "banana", "cookie"]
+for item in myList:
+    print(item)
+
+for item in myList:
+    if 'a' in item:
+        print(item)
+
+for i, item in enumerate(myList):
+    print(i, item)
+
+for i, item in enumerate(myList):
+    myList[i] = item + "s"
+print(myList)
+
+
+numList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+for num in numList:
+    if num ** .5 == 3:
+        print(num)
+
+# the i convention, index or item
+for i in range(100):
+    if i % 2 == 0:
+        print(i)
+
+# nests
+for i in range(10):
+    for j in range(10):
+        print(i*j)
 
 ## while
+# the while loop repeats a chunk of code so long as some condition is met
+x = 0
+while x < 10:
+    print("x < 10")
+
+x = 0
+while x < 10:
+    print(x, " <10")
+    x += 1
+print("done")
+
+x = 0
+while True:
+    if x**2 == 625:
+        False
+        # break
+    else:
+        print(x)
+        x += 1
+
 
 ## input()
 # this lets you take input from the user to use in your script, be careful about type casting. Input will be read as a
@@ -63,7 +115,6 @@ else:
 # write a script that takes a filename or path as input and returns the name and the extension as a key:value pair
 # examples: "/users/nick/documents/r02a.rdf" "numbers.2019.csv" "Slides_feb_2024.ppt"
 
-# add the solution
 
 
 ## Modules
@@ -98,6 +149,39 @@ for i in os.listdir():
 ## Practice problem 2
 # write a script that will return the names and extension of files/subdirectories within a directory on your computer
 # example: create a new folder on your desktop to save the class material you've downloaded so far, then use that to test your script
+
+
+
+## re
+# Regular expressions are patterns that your interpreter can search for. This will be a major tool in the rest of the class.
+# We'll spend an entire lecture talking about how to use regexes, how to design and trouble shoot them, then do a lot of
+# practice.
+
+
+## Pandas module
+# Pandas is a comprehensive data analysis tool built for Python. Before you can use it, you'll need to install it through
+# the Python Packages tool. Pandas has two types of organizational models for data: series and dataframes. We'll go more
+# in depth next week, but here's an example of how useful Pandas is
+
+import pandas as pd
+
+file = "/users/nick/documents/wastewater.csv"
+df = pd.read_csv(file)
+
+rows = df.shape[0]
+print(rows) #572955
+
+filtered_df = df.loc[df['wwtp_jurisdiction'] == 'Maryland']
+
+print(filtered_df)
+
+pd.set_option('display.max_rows', None)
+print(filtered_df)
+
+
+## beautifulsoup4
+# the bs4 module is a great in-between step for webscraping. Specifically, it contains many tools for parsing HTML or XML
+# This is one of the other main modules we'll be using.
 
 
 ## Functions
@@ -166,13 +250,18 @@ def arithmetic_operations(x, y):
 # method, so the variables have to be assigned in that same order
 
 outputs = arithmetic_operations(10, 5)
-print(outputs) # note that this is a tuple. Parentheses and each item is separated by commas.
+print(outputs) # note that this is a tuple. It has parentheses and each item is separated by commas.
 outputs[0]
 outputs[1]
 outputs[-1]
 
 sum, difference, product, division = arithmetic_operations(10, 5)
 print(f"Sum: {sum}, Difference: {difference}, Product: {product}, Division: {division}")
+
+## Practice problem 3
+# Create a function that asks the user for a directory in their computer, then return that directory along with the file
+# extensions present and their descriptions
+
 
 
 ## Classes
@@ -209,7 +298,8 @@ calc.multiply(2)
 print(f"The current value of the calculator is {calc2.get_value()}")
 
 
-# References
+
+# Appendix
 
 ext_dict = {
     "__meta_data__":{"title": "File Extension Dictionary", "description":"This is a dictionary containing several types of file extensions as keys, with a brief description stored as their values", "size":10},
@@ -222,9 +312,50 @@ ext_dict = {
     'py': "Python file, executes python code when run as an executable",
     'sql': "Structured Query Language, executes code to create, modify, or delete databases, or a series of queries to return information",
     'db': "Database, stores information in a structured, computer-accessible way. Not human-readable.",
-    'sh': "Shell script, executes shell commands in the specified shell interpreter"
+    'sh': "Shell script, executes shell commands in the specified shell interpreter",
+    'rdf': "Resource Description Framework, originally meant to be a framework for website metadata, it's now used for storing graph data"
 }
 
+mut_dict = {
+    'G9610358': '13973T 189C 794A 9100G',
+    'G7958610': '13973T 189C 3921T 794A',
+    'G7925831': '13973T 189C 794A 8531G',
+    'G7802158': '13973T 189C 7444A 794A 9100G',
+    'G7653278': '13973T 189C 3921T 794A',
+    'G5748816': '13973T 189C 794A 9100G',
+    'G4166258': '13973T 189C 7444A 794A 9100G',
+    'G3519680': '13973T 189C 3921T 794A',
+    'G2256450': '13973T 189C 794A 8531G',
+    'G8359235': '13973T 15172A 189C 794A',
+    'G7796189': '13973T 189C 794A 9100G',
+    'G7042478': '13395G 13973T 189C 794A',
+    'G7036930': '13973T 189C 794A 9100G',
+    'G5360000': '13973T 189C 5177A 794A',
+    'G4514895': '13191C 13973T 15790T 189C 794A',
+    'G3946282': '11617C 13973T 15773A 189C 794A 8531G',
+    'G2624978': '13973T 189C 794A 9100G',
+    'M7075511': '12630A 16352C 3921A 9365T',
+    'M1257559': '16297C',
+    'G4402217': '13973T 16263C 189C 794A 8531G',
+    'G3724950': '13973T 14198A 189C 794A',
+    'G2908230': '13973T 189C 794A',
+    'M3119807': '9100G',
+    'G8984148': '13973T 185A 189C 794A',
+    'G6646803': '13973T 16293G 189C 794A 8531G',
+    'G2084869': '13973T 143A 189C 794A',
+    'G8311346': '13973T 16274A 189C 794A 8531G',
+    'G9952523': '13973T 14198A 189C 794A',
+    'G9781010': '13973T 189C 3921T 794A',
+    'G8296409': '13973T 189C 794A 9100G',
+    'G6709576': '13191C 13973T 189C 794A',
+    'G6296555': '10586A 13973T 189C 794A 9100G',
+    'G6235448': '13973T 14198A 1780C 189C 794A',
+    'G5219004': '13973T 189C 794A',
+    'G4774700': '13973T 189C 794A 9100G',
+    'G3320095': '13973T 189C 794A',
+    'G2734018': '13973T 189C 794A 9100G',
+    'G2730569': '13973T 189C 794A 9100G',
+}
 
 
 
