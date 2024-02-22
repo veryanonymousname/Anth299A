@@ -1,0 +1,8 @@
+## Problem 1
+# Using the "1976-2020-president.csv" data set, write a function that allows the user to get total votes cast for a
+# specific person in a specific state in a specific year.
+# Bonus, also include the percentage of the total vote that that candidate got by state and year.
+
+# hint use input(), nested for loops, elif series, and df.loc[]
+# don't forget input() takes inputs as string data types, and don't forget cases sensitivity
+# your default arguments for your function can be set to None
