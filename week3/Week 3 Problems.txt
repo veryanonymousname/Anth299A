@@ -1,0 +1,37 @@
+Week 3
+
+1.	Reorganize this string alphabetically:
+    “define Any genetics. can biologist”
+
+2.	Given the height and base of a triangle, compute the area
+    *Bonus for making a function that can take height, base as args
+
+3.	Take a filename and return just the extension
+    Example inputs:
+    a.	“homework1.docx”
+    b.	“homework2.txt”
+    c.	“project.py”
+    d.	“presentation.ppt”
+    e.	“shake_it_off.mp3”
+    *Bonus point for returning a brief description as well
+
+4.	Write a function to sum all the numbers in a list
+    Examples
+    a.	[1, 1, 2, 3, 5, 8, 13]
+    b.	[199, 483, 290, 157, 23, 1, 194, 300]
+
+5.	Check whether a string is a palindrome or not
+    Examples
+    a.	“racecar” is a palindrome
+    b.	“raceway” is not
+
+6.	Computing GC content from Rosalind.info:
+
+    Given: A string of nucleotides “ACGTGATCATGCTAGCAT[…]”
+
+    Return: The percentage of the sequence that are G or C
+
+    Example: “ACGT” is 50% GC
+
+7.	Make a rock, paper, scissors game
+
