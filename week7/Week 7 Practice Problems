@@ -1,0 +1,112 @@
+Week 7 review problems
+
+
+[basic data structures]
+
+1) Write a function that takes a time (24hr) and name argument, then greets the users accordingly (good morning/afternoon/evening).
+Typically, morning is considered midnight to noon, afternoon, is noon to 1700, and evening is 1700 to midnight.
+Hint: use a formatted string (f"This is a string with a {variable}"
+Bonus, instead of asking for the time as an input, explore the datetime module (hint: "import datetime", then "datetime.datetime.now()")
+
+2) Write a function that combines two equal sized lists into a dictionary.
+Example: names = ["Alice", "Bob", "Eve"], ages = [21, 23, 27], def myFunc(klist = [], vlist = []):
+
+3) Write a function that accepts any string from the user, then evaluate whether the string is a palindrome or not. Make the output
+a formatted string that says whether the argument is a palindrome or not
+Hint: racecar is a palindrome, raceway is not. you can iterate with positive i [i], and negative i [-i]
+
+4) join the names list from number 2, separated by the word 'and'
+note: join converts a list to a string
+
+5) split the string you created in 4 back into a list, where each item is just the name, with no spaces. Don't include 'and' as
+an item in your list.
+note: split converts a string into a list
+
+6) Write a function that takes a name from the user, then check whether that name is in the name dictionary in the appendix below.
+If the name is in the dictionary, return the associated data. If not, prompt the user for that data and update the dictionary.
+update dictionaries with the .update() method, or just "myDict[new key] = new value"
+
+
+
+[pandas data structures]
+
+Use the following script to create two partially complete dataframes:
+
+import pandas as pd
+df1 = pd.DataFrame(columns=["Haplogroup", "Shared", "HaploFamily"])
+df2 = df1.copy(deep=False)
+list1 = ["A1", "A1b12a", "C1a1a", "C1a1b", "C1a1c", "C1a1d", "B2b1a", "B2b1b", "B2b1c", "B2b1d"]
+list2 = ["C1b2", "C2b2", "C3b2", "A11b12a", "A1b12a", "C1a1d", "B2b1b", "B2b11c", "B2b1e", "A1b"]
+for i in range(len(list1)):
+    df1.loc[i, "Haplogroup"] = list1[i]
+    df1.loc[i, "HaploFamily"] = list1[i][:2]
+    df2.loc[i, "Haplogroup"] = list2[i]
+    df2.loc[i, "HaploFamily"] = list2[i][:2]
+
+7) Write a function to fill out the shared column in each df, the shared value means that haplotype is present in both dataframes.
+hint: convert your series to lists, or use (boolean evaluation of df).any() to see if any truth value appears in the
+series of truth values you generated
+eg. ("A1" == df1["Haplogroup"]).any() would return True
+
+
+Appendix
+
+name_dict = {
+ 'Mary Jones': {'age': 96, 'city': 'Los Angeles'},
+ 'Linda Johnson': {'age': 64, 'city': 'Philadelphia'},
+ 'Anna Jones': {'age': 22, 'city': 'Philadelphia'},
+ 'Jane Davis': {'age': 90, 'city': 'San Antonio'},
+ 'Jennifer Williams': {'age': 93, 'city': 'New York'}
+ 'Chris Garcia': {'age': 86, 'city': 'Phoenix'},
+ 'John Smith': {'age': 90, 'city': 'Houston'},
+ 'David Brown': {'age': 99, 'city': 'New York'},
+ 'Mary Rodriguez': {'age': 68, 'city': 'Phoenix'},
+ 'Mike Smith': {'age': 60, 'city': 'Dallas'},
+ 'Chris Miller': {'age': 49, 'city': 'New York'},
+ 'David Smith': {'age': 33, 'city': 'San Diego'},
+ 'Jane Jones': {'age': 96, 'city': 'San Diego'},
+ 'Robert Garcia': {'age': 57, 'city': 'San Jose'},
+ 'Linda Williams': {'age': 55, 'city': 'San Antonio'}
+}
+
+
+mut_dict = {
+    'G9610358': '13973T 189C 794A 9100G',
+    'G7958610': '13973T 189C 3921T 794A',
+    'G7925831': '13973T 189C 794A 8531G',
+    'G7802158': '13973T 189C 7444A 794A 9100G',
+    'G7653278': '13973T 189C 3921T 794A',
+    'G5748816': '13973T 189C 794A 9100G',
+    'G4166258': '13973T 189C 7444A 794A 9100G',
+    'G3519680': '13973T 189C 3921T 794A',
+    'G2256450': '13973T 189C 794A 8531G',
+    'G8359235': '13973T 15172A 189C 794A',
+    'G7796189': '13973T 189C 794A 9100G',
+    'G7042478': '13395G 13973T 189C 794A',
+    'G7036930': '13973T 189C 794A 9100G',
+    'G5360000': '13973T 189C 5177A 794A',
+    'G4514895': '13191C 13973T 15790T 189C 794A',
+    'G3946282': '11617C 13973T 15773A 189C 794A 8531G',
+    'G2624978': '13973T 189C 794A 9100G',
+    'M7075511': '12630A 16352C 3921A 9365T',
+    'M1257559': '16297C',
+    'G4402217': '13973T 16263C 189C 794A 8531G',
+    'G3724950': '13973T 14198A 189C 794A',
+    'G2908230': '13973T 189C 794A',
+    'M3119807': '9100G',
+    'G8984148': '13973T 185A 189C 794A',
+    'G6646803': '13973T 16293G 189C 794A 8531G',
+    'G2084869': '13973T 143A 189C 794A',
+    'G8311346': '13973T 16274A 189C 794A 8531G',
+    'G9952523': '13973T 14198A 189C 794A',
+    'G9781010': '13973T 189C 3921T 794A',
+    'G8296409': '13973T 189C 794A 9100G',
+    'G6709576': '13191C 13973T 189C 794A',
+    'G6296555': '10586A 13973T 189C 794A 9100G',
+    'G6235448': '13973T 14198A 1780C 189C 794A',
+    'G5219004': '13973T 189C 794A',
+    'G4774700': '13973T 189C 794A 9100G',
+    'G3320095': '13973T 189C 794A',
+    'G2734018': '13973T 189C 794A 9100G',
+    'G2730569': '13973T 189C 794A 9100G',
+}
