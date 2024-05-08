@@ -1,0 +1,11 @@
+Practice problems
+Use the presidents database from the end of the Week 10 script
+
+1. Query the 1976 table to get the candidates with more than 100,000 votes.
+
+2. Query the 2012 table to get the votes for the two most voted for candidates.
+    Hint: your queries return lists of information, and python has built-in list indexing methods
+
+3. Query the 2000 table to get all the candidates who ran.
+
+4. Query each year to get the total votes per year.

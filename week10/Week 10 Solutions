@@ -1,0 +1,22 @@
+1.
+cursor.execute("SELECT candidate FROM data1976 where votes > 100000")
+print(cursor.fetchall())
+
+
+2.
+cursor.execute("SELECT candidate FROM data2012 ORDER BY votes")
+x = cursor.fetchall()
+print(x[-2:])
+
+3.
+cursor.execute("SELECT candidate FROM data2000")
+print(cursor.fetchall())
+
+4.
+years.sort()
+for year in years:
+    selection = f"SELECT SUM(votes) FROM data{year}"
+    cursor.execute(selection)
+    print(year, ":\n", cursor.fetchall())
+
+
