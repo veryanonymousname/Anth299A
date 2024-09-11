@@ -4,9 +4,9 @@ Week 3
     “define Any genetics. can biologist”
 
 2.	Given the height and base of a triangle, compute the area
-    *Bonus for making a function that can take height, base as args
+    *Make a function that can take height, base as args
 
-3.	Take a filename and return just the extension
+3.	Take a filename (argument) and return just the extension
     Example inputs:
     a.	“homework1.docx”
     b.	“homework2.txt”
